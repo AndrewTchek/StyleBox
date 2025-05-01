@@ -1,12 +1,46 @@
-﻿<Window x:Class="StyleBox.MainWindow"
+﻿<Window x:Class ="StyleBox.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StyleBox"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Інформація про одяг" Height="450" Width="800">
     <Grid>
-        
+
+        <Menu VerticalAlignment="Top"  Grid.Row="0" >
+            <MenuItem Header="Файл">
+                <MenuItem Header="Завантажити"/>
+                <MenuItem Header="Зберегти локально" />
+            </MenuItem>
+            <MenuItem Header="Пошук" >
+                <MenuItem Header="Пошук за артиклом" />
+                <MenuItem Header="Пошук за типом" />
+            </MenuItem>
+            <MenuItem Header="Авторизація"  />
+            <MenuItem Header="Дані" >
+                <MenuItem Header="Додати" />
+                <MenuItem Header="Змінити" />
+            </MenuItem>
+        </Menu>
+
+        <DataGrid x:Name="ClothListDG" HorizontalAlignment="Left"
+Margin="10,30,10,20" VerticalAlignment="Top"
+AutoGenerateColumns="False" ItemsSource="{Binding}">
+            
+            <DataGrid.Columns >
+                <DataGridTextColumn Header = "Артикул" Binding = "{Binding article}"
+Width="*"/>
+                <DataGridTextColumn Header = "Назва" Binding = "{Binding
+name}" Width="*"/>
+                <DataGridTextColumn Header = "Тип" Binding =
+"{Binding type}" Width="*"/>
+                <DataGridTextColumn Header = "Ціна" Binding = "{Binding
+price}" Width="*"/>
+                <DataGridTextColumn Header = "Кількість" Binding =
+"{Binding number}" Width="*"/>
+            </DataGrid.Columns >
+            
+        </DataGrid>
     </Grid>
 </Window>
