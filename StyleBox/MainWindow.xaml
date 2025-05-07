@@ -10,7 +10,7 @@
 
         <Menu VerticalAlignment="Top"  Grid.Row="0" >
             <MenuItem Header="Файл">
-                <MenuItem Header="Завантажити"/>
+                <MenuItem Header="Завантажити" Click="Db_download"/>
                 <MenuItem Header="Зберегти локально" />
             </MenuItem>
             <MenuItem Header="Пошук" >
@@ -29,18 +29,20 @@ Margin="10,30,10,20" VerticalAlignment="Top"
 AutoGenerateColumns="False" ItemsSource="{Binding}">
             
             <DataGrid.Columns >
-                <DataGridTextColumn Header = "Артикул" Binding = "{Binding article}"
+                <DataGridTextColumn Header = "Артикул" Binding = "{Binding cloth_article}"
 Width="*"/>
                 <DataGridTextColumn Header = "Назва" Binding = "{Binding
-name}" Width="*"/>
+cloth_name}" Width="*"/>
                 <DataGridTextColumn Header = "Тип" Binding =
-"{Binding type}" Width="*"/>
+"{Binding cloth_type}" Width="*"/>
                 <DataGridTextColumn Header = "Ціна" Binding = "{Binding
-price}" Width="*"/>
+cloth_price}" Width="*"/>
                 <DataGridTextColumn Header = "Кількість" Binding =
-"{Binding number}" Width="*"/>
+"{Binding cloth_number}" Width="*"/>
             </DataGrid.Columns >
+
             
-        </DataGrid>
+
+            </DataGrid>
     </Grid>
 </Window>
