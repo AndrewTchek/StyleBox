@@ -6,26 +6,14 @@ using System.Threading.Tasks;
 
 namespace StyleBox
 {
-    public class GlobalClass
+    public class Cloth
     {
-        public struct Cloth
-        {
-            public string cloth_article;
-            public string cloth_name;
-            public string cloth_type;
-            public double cloth_price;
-            public int cloth_number;
+        public string cloth_article { get; set; }
+        public string cloth_name { get; set; }
+        public string cloth_type { get; set; }
+        public double cloth_price { get; set; }
+        public int cloth_number { get; set; }
 
-            public Cloth(string article, string name, string type, double price, int number)
-            {
-                this.cloth_article = article;
-                cloth_name = name;
-                cloth_type = type;
-                cloth_price = price;
-                cloth_number = number;
-            }
-        }
-
-
+       
     }
 }

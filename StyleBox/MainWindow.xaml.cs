@@ -15,8 +15,6 @@ using System.Windows.Shapes;
 
 
 using MySql.Data.MySqlClient;
-using static StyleBox.GlobalClass;
-
 
 namespace StyleBox
 {
@@ -70,27 +68,22 @@ namespace StyleBox
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                //List<GlobalClass.Cloth> clothlist = new List<GlobalClass.Cloth>();
-                GlobalClass.Cloth[] clothList = new GlobalClass.Cloth[10];
+                List<Cloth> clothList = new List<Cloth>();
 
                 int i = 0;
                 while (reader.Read())
                 {
-                    //string name = reader["cloth_name"];
-                    //MessageBox.Show("typeof name" + reader["cloth_name"] + )
 
-                    //ClothDataGrid.Items.Add(reader["cloth_article"] + " " + reader["cloth_name"]);
-                    //clothlist.Add(new Cloth(reader["cloth_articel"], reader["cloth_name", "M", Convert.ToDouble(reader["cloth_price"]), (int)reader["cloth_number"]);
-                    clothList[i].cloth_article = (string)reader["cloth_article"];
-                    clothList[i].cloth_name = (string)reader["cloth_name"];
-                    clothList[i].cloth_type = (string)reader["cloth_type"];
-                    clothList[i].cloth_price = Convert.ToDouble(reader["cloth_price"]);
-                    clothList[i].cloth_number = Convert.ToInt32(reader["cloth_number"]);
-                    i++;
-
-                    
+                    clothList.Add(new Cloth
+                    {
+                        cloth_article = reader["cloth_article"].ToString(),
+                        cloth_name = reader["cloth_name"].ToString(),
+                        cloth_type = reader["cloth_type"].ToString(),
+                        cloth_price = Convert.ToDouble(reader["cloth_price"]),
+                        cloth_number = Convert.ToInt32(reader["cloth_number"])
+                    });
                 }
-
+                
                 ClothListDG.ItemsSource = clothList;
             }
             catch(MySqlException ex)

@@ -26,19 +26,17 @@
 
         <DataGrid x:Name="ClothListDG" HorizontalAlignment="Left"
 Margin="10,30,10,20" VerticalAlignment="Top"
-AutoGenerateColumns="False" ItemsSource="{Binding}">
+AutoGenerateColumns="False" CanUserAddRows ="False">
             
             <DataGrid.Columns >
-                <DataGridTextColumn Header = "Артикул" Binding = "{Binding cloth_article}"
+                <DataGridTextColumn Header = "Артикул" Binding = "{Binding  cloth_article}"
 Width="*"/>
-                <DataGridTextColumn Header = "Назва" Binding = "{Binding
-cloth_name}" Width="*"/>
+                <DataGridTextColumn Header = "Назва" Binding = "{Binding  cloth_name}" Width="*"/>
                 <DataGridTextColumn Header = "Тип" Binding =
-"{Binding cloth_type}" Width="*"/>
-                <DataGridTextColumn Header = "Ціна" Binding = "{Binding
-cloth_price}" Width="*"/>
+"{Binding  cloth_type}" Width="*"/>
+                <DataGridTextColumn Header = "Ціна" Binding = "{Binding  cloth_price}" Width="*"/>
                 <DataGridTextColumn Header = "Кількість" Binding =
-"{Binding cloth_number}" Width="*"/>
+"{Binding  cloth_number}" Width="*"/>
             </DataGrid.Columns >
 
             
