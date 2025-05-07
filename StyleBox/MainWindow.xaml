@@ -17,10 +17,10 @@
                 <MenuItem Header="Пошук за артиклом" />
                 <MenuItem Header="Пошук за типом" />
             </MenuItem>
-            <MenuItem Header="Авторизація"  />
+            <MenuItem Header="Авторизація" Click="Autorization_Click" />
             <MenuItem Header="Дані" >
-                <MenuItem Header="Додати" />
-                <MenuItem Header="Змінити" />
+                <MenuItem Header="Додати" Click="Add_Click"/>
+                <MenuItem Header="Змінити" Click="Edit_Click"/>
             </MenuItem>
         </Menu>
 
