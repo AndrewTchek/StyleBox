@@ -17,12 +17,40 @@ namespace StyleBox
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
+    /// 
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void ClothListDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Autorization_Click(object sender, RoutedEventArgs e)
+        {
+            AutorizationForm autorizationForm = new AutorizationForm();
+            autorizationForm.Show();
+            Hide();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            AddForm addForm = new AddForm();
+            addForm.Show();
+            Hide();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditForm editForm = new EditForm();
+            editForm.Show();
+            Hide();
         }
     }
 }
