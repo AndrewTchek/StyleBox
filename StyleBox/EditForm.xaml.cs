@@ -19,13 +19,26 @@ namespace StyleBox
     /// </summary>
     public partial class EditForm : Window
     {
-        public EditForm()
+        private Cloth Selected_Cloth;
+        public EditForm(Cloth cloth)
         {
             InitializeComponent();
+            Selected_Cloth = cloth;
+            NameTextBox.Text = Selected_Cloth.cloth_name;
+            ArticleTextBox.Text = Selected_Cloth.cloth_article;
+            PriceTextBox.Text = Selected_Cloth.cloth_price.ToString();
+            TypeTextBox.Text = Selected_Cloth.cloth_type.ToString();
+            NumberTextBox.Text = Selected_Cloth.cloth_number.ToString();
+
+            // и т.д. для других полей
         }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
             Hide();
         }
     }
