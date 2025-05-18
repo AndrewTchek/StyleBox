@@ -9,11 +9,12 @@
     <Grid >
         <StackPanel Width="500" Height="400" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Зміна даних про одяг" FontSize="30" FontWeight="Bold" Margin="0,0,0,10" TextAlignment="Center"/>
-
+            
+            <TextBlock Text="Артикул:" FontSize="16"/>
+            <TextBox Name="ArticleTextBox" Margin="0,5" Height="25" IsReadOnly="True"/>
             <TextBlock Text="Назва:" FontSize="16"/>
             <TextBox Name="NameTextBox" Margin="0,5" Height="25"/>
-            <TextBlock Text="Артикул:" FontSize="16"/>
-            <TextBox Name="ArticleTextBox" Margin="0,5" Height="25"/>
+            
             <TextBlock Text="Ціна:" FontSize="16"/>
             <TextBox Name="PriceTextBox" Margin="0,5" Height="25"/>
             <TextBlock Text="Тип:" FontSize="16"/>

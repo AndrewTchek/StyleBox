@@ -108,6 +108,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Cloth.cs" />
+    <Compile Include="DB_Communication.cs" />
     <Compile Include="SearchArticle.xaml.cs">
       <DependentUpon>SearchArticle.xaml</DependentUpon>
     </Compile>

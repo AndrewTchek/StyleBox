@@ -32,13 +32,13 @@ AutoGenerateColumns="False" CanUserAddRows ="False">
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns >
-                <DataGridTextColumn Header = "Артикул" Binding = "{Binding  cloth_article}"
+                <DataGridTextColumn Header = "Артикул" IsReadOnly="True" Binding = "{Binding  cloth_article}"
 Width="*"/>
-                <DataGridTextColumn Header = "Назва" Binding = "{Binding  cloth_name}" Width="*"/>
-                <DataGridTextColumn Header = "Тип" Binding =
+                <DataGridTextColumn Header = "Назва" IsReadOnly="True" Binding = "{Binding  cloth_name}" Width="*"/>
+                <DataGridTextColumn Header = "Тип" IsReadOnly="True" Binding =
 "{Binding  cloth_type}" Width="*"/>
-                <DataGridTextColumn Header = "Ціна" Binding = "{Binding  cloth_price}" Width="*"/>
-                <DataGridTextColumn Header = "Кількість" Binding =
+                <DataGridTextColumn Header = "Ціна" IsReadOnly="True" Binding = "{Binding  cloth_price}" Width="*"/>
+                <DataGridTextColumn Header = "Кількість" IsReadOnly="True" Binding =
 "{Binding  cloth_number}" Width="*"/>
             </DataGrid.Columns >
 

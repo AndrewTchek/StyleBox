@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,10 +38,20 @@ namespace StyleBox
 
 
 
-        private void Save_Button_Click(object sender, RoutedEventArgs e)
-        {
+        private void Save_Button_Click(object sender, RoutedEventArgs e) 
+        { 
+        
+                // Обновляем объект Selected_Cloth из текстбоксов
             Selected_Cloth.cloth_name = NameTextBox.Text;
+            Selected_Cloth.cloth_article = ArticleTextBox.Text;
+            Selected_Cloth.cloth_price = Convert.ToDouble(PriceTextBox.Text);
+            Selected_Cloth.cloth_type = TypeTextBox.Text;
+            Selected_Cloth.cloth_number = Convert.ToInt32(NumberTextBox.Text);
+
+            DB_Communication.DB_Update_Item(Selected_Cloth);
+           
             mainWindow.Show();
+            mainWindow.Db_download(sender, e);
             Close();
         }
     }
