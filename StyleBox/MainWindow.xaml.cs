@@ -95,8 +95,13 @@ namespace StyleBox
 
         }
 
-        private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private Cloth DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            DataGridRow row = (DataGridRow)sender;
+            Cloth selectedCloth = (Cloth)row.Item;
+            return selectedCloth;
+
+
             EditForm editForm = new EditForm();
             editForm.Show();
             Hide();
