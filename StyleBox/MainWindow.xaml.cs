@@ -86,11 +86,20 @@ namespace StyleBox
                 
                 ClothListDG.ItemsSource = clothList;
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
+                MessageBox.Show("Помилка: Підключення не відбулось");
                 MessageBox.Show(ex.ToString());
+
             }
 
+        }
+
+        private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            EditForm editForm = new EditForm();
+            editForm.Show();
+            Hide();
         }
     }
 }

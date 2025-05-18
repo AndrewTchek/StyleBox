@@ -27,7 +27,11 @@
         <DataGrid x:Name="ClothListDG" HorizontalAlignment="Left"
 Margin="10,30,10,20" VerticalAlignment="Top"
 AutoGenerateColumns="False" CanUserAddRows ="False">
-            
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns >
                 <DataGridTextColumn Header = "Артикул" Binding = "{Binding  cloth_article}"
 Width="*"/>
