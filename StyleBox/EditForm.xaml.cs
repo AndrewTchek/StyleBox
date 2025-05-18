@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace StyleBox
 {
-    /// <summary>
-    /// Логика взаимодействия для EditForm.xaml
-    /// </summary>
     public partial class EditForm : Window
     {
         private Cloth Selected_Cloth;
@@ -32,16 +29,13 @@ namespace StyleBox
             PriceTextBox.Text = Selected_Cloth.cloth_price.ToString();
             TypeTextBox.Text = Selected_Cloth.cloth_type.ToString();
             NumberTextBox.Text = Selected_Cloth.cloth_number.ToString();
-
-            // и т.д. для других полей
         }
 
 
 
         private void Save_Button_Click(object sender, RoutedEventArgs e) 
         { 
-        
-                // Обновляем объект Selected_Cloth из текстбоксов
+
             Selected_Cloth.cloth_name = NameTextBox.Text;
             Selected_Cloth.cloth_article = ArticleTextBox.Text;
             Selected_Cloth.cloth_price = Convert.ToDouble(PriceTextBox.Text);

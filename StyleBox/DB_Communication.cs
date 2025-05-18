@@ -17,7 +17,7 @@ namespace StyleBox
         {
             try
             {
-                string connstring = "server=localhost;uid=root;pwd=135135135;database=stylebox_db";
+                string connstring = "server=localhost;uid=root;pwd=27072005;database=stylebox_db";
                 con = new MySqlConnection();
                 con.ConnectionString = connstring;
                 con.Open();
@@ -76,7 +76,7 @@ namespace StyleBox
                 cmd.Parameters.AddWithValue("@number", selcetedCloth.cloth_number);
                 cmd.Parameters.AddWithValue("@article", selcetedCloth.cloth_article);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Данні оновлено!");
+                MessageBox.Show("Дані оновлено!");
             }
             catch (MySqlException ex)
             {

@@ -18,16 +18,14 @@ using MySql.Data.MySqlClient;
 
 namespace StyleBox
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// 
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private bool autorization = true;
         public MainWindow()
         {
             InitializeComponent();
             DB_Communication.DB_Connect();
+
 
         }
 
@@ -61,13 +59,19 @@ namespace StyleBox
         }
 
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            DataGridRow row = (DataGridRow)sender;
-            Cloth selectedCloth = (Cloth)row.Item;
+        { 
+            if (autorization){
+                DataGridRow row = (DataGridRow)sender;
+                Cloth selectedCloth = (Cloth)row.Item;
 
-            EditForm editForm = new EditForm(selectedCloth, this);
-            editForm.Show();
-            Hide();
+                EditForm editForm = new EditForm(selectedCloth, this);
+                editForm.Show();
+                Hide();
+               }
+            else
+            {
+                MessageBox.Show("Недостатньо прав");
+            }
         }
     }
 }
