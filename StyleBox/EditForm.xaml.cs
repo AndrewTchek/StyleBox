@@ -20,9 +20,11 @@ namespace StyleBox
     public partial class EditForm : Window
     {
         private Cloth Selected_Cloth;
-        public EditForm(Cloth cloth)
+        private MainWindow mainWindow;
+        public EditForm(Cloth cloth, MainWindow main)
         {
             InitializeComponent();
+            mainWindow = main;
             Selected_Cloth = cloth;
             NameTextBox.Text = Selected_Cloth.cloth_name;
             ArticleTextBox.Text = Selected_Cloth.cloth_article;
@@ -35,11 +37,11 @@ namespace StyleBox
 
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.Show();
-            Hide();
+            Selected_Cloth.cloth_name = NameTextBox.Text;
+            mainWindow.Show();
+            Close();
         }
     }
 }

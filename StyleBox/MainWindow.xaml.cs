@@ -49,12 +49,7 @@ namespace StyleBox
             Hide();
         }
 
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            EditForm editForm = new EditForm();
-            editForm.Show();
-            Hide();
-        }
+       
 
         private void Db_download(object sender, RoutedEventArgs e)
         {
@@ -100,7 +95,7 @@ namespace StyleBox
             DataGridRow row = (DataGridRow)sender;
             Cloth selectedCloth = (Cloth)row.Item;
 
-            EditForm editForm = new EditForm(selectedCloth);
+            EditForm editForm = new EditForm(selectedCloth, this);
             editForm.Show();
             Hide();
         }
