@@ -20,7 +20,7 @@
             <MenuItem Header="Авторизація" Click="Autorization_Click" />
             <MenuItem Header="Дані" >
                 <MenuItem Header="Додати" Click="Add_Click"/>
-                <MenuItem Header="Додати" Click="Delete_Click"/>
+                <MenuItem Header="Видалити" Click="Delete_Click"/>
             </MenuItem>
         </Menu>
 

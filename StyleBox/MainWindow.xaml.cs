@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,13 +22,10 @@ namespace StyleBox
     public partial class MainWindow : Window
     {
         private bool autorization = true;
-        private Cloth selected_row;
         public MainWindow()
         {
             InitializeComponent();
             DB_Communication.DB_Connect();
-
-
         }
 
         private void ClothListDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,15 +39,6 @@ namespace StyleBox
             autorizationForm.Show();
             Hide();
         }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            AddForm addForm = new AddForm();
-            addForm.Show();
-            Hide();
-        }
-
-       
 
         public void Db_download(object sender, RoutedEventArgs e)
         {
@@ -75,12 +64,6 @@ namespace StyleBox
             }
         }
 
-        private void Info_Click(object sender, MouseButtonEventArgs e)
-        {
-            DataGridRow row = (DataGridRow)sender;
-            Cloth selected_row = (Cloth)row.Item;
- 
-        }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +87,7 @@ namespace StyleBox
                     if (deleted)
                     {
                         MessageBox.Show("Успішно видалено!", "Інформація", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Db_download(null, null); // Оновлення списку
+                        Db_download(null, null);
                     }
                     else
                     {
@@ -117,6 +100,20 @@ namespace StyleBox
                 MessageBox.Show("Оберіть елемент для видалення", "Попередження", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            if (autorization)
+            {
+
+                AddForm addForm = new AddForm(this);
+                addForm.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Недостатньо прав");
+            }
+        }
     }
-    
 }

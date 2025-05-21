@@ -20,7 +20,7 @@
             <TextBox Name="TypeTextBox" Margin="0,5" Height="25"/>
             <TextBlock Text="Кількість:" FontSize="16"/>
             <TextBox Name="NumberTextBox" Margin="0,5" Height="25"/>
-            <Button Content="Додати"  Margin="0,10,0,0" Height="35" Background="Purple" Foreground="White" FontSize="20"/>
+            <Button Content="Додати" Click="Add_Button_Click"  Margin="0,10,0,0" Height="35" Background="Purple" Foreground="White" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -17,7 +17,7 @@ namespace StyleBox
         {
             try
             {
-                string connstring = "server=localhost;uid=root;pwd=27072005;database=stylebox_db";
+                string connstring = "server=localhost;uid=root;pwd=135135135;database=stylebox_db";
                 con = new MySqlConnection();
                 con.ConnectionString = connstring;
                 con.Open();
@@ -57,7 +57,7 @@ namespace StyleBox
 
         }
     
-        public static void DB_Update_Item(Cloth selcetedCloth)
+        public static bool DB_Update_Item(Cloth selcetedCloth)
         {
             
             string query = "UPDATE stocks SET " +
@@ -75,12 +75,13 @@ namespace StyleBox
                 cmd.Parameters.AddWithValue("@price", selcetedCloth.cloth_price);
                 cmd.Parameters.AddWithValue("@number", selcetedCloth.cloth_number);
                 cmd.Parameters.AddWithValue("@article", selcetedCloth.cloth_article);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Дані оновлено!");
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Помилка: " + ex.Message);
+                MessageBox.Show("Помилка при редагуванні: " + ex.Message);
+                return false;
             }
 
 
@@ -98,6 +99,50 @@ namespace StyleBox
             catch (Exception ex)
             {
                 MessageBox.Show("Помилка при видаленні: " + ex.Message);
+                return false;
+            }
+        }
+    
+        public static bool DB_Add_Item(Cloth new_item)
+        {
+
+
+
+
+
+
+
+            string query = "SELECT COUNT(*) FROM stocks WHERE cloth_article = @article";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@article", new_item.cloth_article);
+
+            long count = (long)cmd.ExecuteScalar();
+            if (count > 0)
+            {
+                MessageBox.Show("Товар з таким артикулом вже існує");
+                return false;
+            }
+
+            try
+            {
+                 query = @"INSERT INTO stocks 
+                (cloth_article, cloth_name, cloth_type, cloth_price, cloth_number)
+                VALUES (@article, @name, @type, @price, @number)";
+
+                cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@article", new_item.cloth_article);
+                cmd.Parameters.AddWithValue("@name", new_item.cloth_name);
+                cmd.Parameters.AddWithValue("@type", new_item.cloth_type);
+                cmd.Parameters.AddWithValue("@price", new_item.cloth_price);
+                cmd.Parameters.AddWithValue("@number", new_item.cloth_number);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Помилка при додаванні: " + ex.Message);
                 return false;
             }
         }

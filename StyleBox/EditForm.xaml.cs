@@ -31,7 +31,14 @@ namespace StyleBox
             NumberTextBox.Text = Selected_Cloth.cloth_number.ToString();
         }
 
-
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            if (mainWindow != null)
+            {
+                mainWindow.Show();
+            }
+        }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e) 
         { 
@@ -42,11 +49,19 @@ namespace StyleBox
             Selected_Cloth.cloth_type = TypeTextBox.Text;
             Selected_Cloth.cloth_number = Convert.ToInt32(NumberTextBox.Text);
 
-            DB_Communication.DB_Update_Item(Selected_Cloth);
+            bool edited = DB_Communication.DB_Update_Item(Selected_Cloth);
            
-            mainWindow.Show();
-            mainWindow.Db_download(sender, e);
-            Close();
+            if (edited)
+            {
+                MessageBox.Show("Успішно оновлено!", "Інформація", MessageBoxButton.OK, MessageBoxImage.Information);
+                mainWindow.Show();
+                mainWindow.Db_download(null, null);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Помилка при доданні", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
