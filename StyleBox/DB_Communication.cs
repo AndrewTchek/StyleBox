@@ -85,6 +85,22 @@ namespace StyleBox
 
 
         }
+        public static bool Delete_Cloth(string article)
+        {
+            try
+            {
+                    string query = "DELETE FROM stocks WHERE cloth_article = @article";
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@article", article);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Помилка при видаленні: " + ex.Message);
+                return false;
+            }
+        }
     }
 
 }

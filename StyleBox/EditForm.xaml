@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StyleBox"
         mc:Ignorable="d"
-            Title="Редагування" Height="450" Width="800">
+            Title="Редагування" Height="480" Width="800">
     <Grid >
         <StackPanel Width="500" Height="400" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Зміна даних про одяг" FontSize="30" FontWeight="Bold" Margin="0,0,0,10" TextAlignment="Center"/>

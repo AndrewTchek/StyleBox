@@ -20,6 +20,7 @@
             <MenuItem Header="Авторизація" Click="Autorization_Click" />
             <MenuItem Header="Дані" >
                 <MenuItem Header="Додати" Click="Add_Click"/>
+                <MenuItem Header="Додати" Click="Delete_Click"/>
             </MenuItem>
         </Menu>
 
@@ -29,6 +30,7 @@ AutoGenerateColumns="False" CanUserAddRows ="False">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                    <EventSetter Event="PreviewMouseLeftButtonUp" Handler="Info_Click"/>
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns >

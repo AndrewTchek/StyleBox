@@ -21,6 +21,7 @@ namespace StyleBox
     public partial class MainWindow : Window
     {
         private bool autorization = true;
+        private Cloth selected_row;
         public MainWindow()
         {
             InitializeComponent();
@@ -73,5 +74,49 @@ namespace StyleBox
                 MessageBox.Show("Недостатньо прав");
             }
         }
+
+        private void Info_Click(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = (DataGridRow)sender;
+            Cloth selected_row = (Cloth)row.Item;
+ 
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (!autorization)
+            {
+                MessageBox.Show("Недостатньо прав");
+                return;
+            }
+
+            if (ClothListDG.SelectedItem is Cloth selectedCloth)
+            {
+                MessageBoxResult result = MessageBox.Show(
+                    $"Ви впевнені, що хочете видалити: {selectedCloth.cloth_name}?",
+                    "Підтвердження видалення",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    bool deleted = DB_Communication.Delete_Cloth(selectedCloth.cloth_article);
+                    if (deleted)
+                    {
+                        MessageBox.Show("Успішно видалено!", "Інформація", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Db_download(null, null); // Оновлення списку
+                    }
+                    else
+                    {
+                        MessageBox.Show("Помилка при видаленні", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Оберіть елемент для видалення", "Попередження", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
+    
 }
