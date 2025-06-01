@@ -25,6 +25,7 @@ namespace StyleBox
             InitializeComponent();
             mainWindow = main;
         }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -32,6 +33,21 @@ namespace StyleBox
             {
                 mainWindow.Show();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string inpText = SearchArticleBox.Text;
+            if (inpText.Length != 5)
+            {
+                MessageBox.Show("Артикул повинен містити 5 символів", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            List<Cloth> clothList = DB_Communication.DB_Get_Data(inpText);
+            mainWindow.ClothListDG.ItemsSource = clothList;
+            this.Close();
+            mainWindow.Show();
         }
     }
 }

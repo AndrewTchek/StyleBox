@@ -55,6 +55,19 @@ namespace StyleBox
                 return;
             }
 
+            if(new_item.cloth_article.Length != 5)
+            {
+                MessageBox.Show("Артикул повинен містити 5 символів.", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if(new_item.cloth_type != "M" && new_item.cloth_type != "F" && new_item.cloth_type != "K")
+            {
+                MessageBox.Show("Тип одягу повинен бути 'M'(для чловіків), 'F'(для жінок) або 'K'(для дітей).", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+
             bool added = DB_Communication.DB_Add_Item(new_item);
             if (added)
             {

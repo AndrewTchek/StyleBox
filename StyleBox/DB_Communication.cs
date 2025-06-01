@@ -17,7 +17,7 @@ namespace StyleBox
         {
             try
             {
-                string connstring = "server=localhost;uid=root;pwd=27072005;database=stylebox_db";
+                string connstring = "server=localhost;uid=root;pwd=135135135;database=stylebox_db";
                 con = new MySqlConnection();
                 con.ConnectionString = connstring;
                 con.Open();
@@ -29,11 +29,29 @@ namespace StyleBox
                 MessageBox.Show(ex.ToString());
             }
         }
-        public static List<Cloth> DB_Get_Data()
+        public static List<Cloth> DB_Get_Data(string filter = "")
         {
             string sql = "select * from stocks";
             MySqlCommand cmd = new MySqlCommand(sql, con);
+
+            if (filter.Length == 1)
+            {
+                sql = "select * from stocks where cloth_type = @filter";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@filter", filter);
+                MessageBox.Show(sql);
+            }
+            else if (filter.Length > 1 && filter.Length <= 5)
+            {
+                sql = "select * from stocks where cloth_article = @filter";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@filter", filter);
+                MessageBox.Show(sql);
+            }
+
+
             MySqlDataReader reader = cmd.ExecuteReader();
+            
 
             List<Cloth> clothList = new List<Cloth>();
 

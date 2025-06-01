@@ -11,9 +11,9 @@
             <TextBlock Text="Пошук одягу за артиклом" FontSize="30" FontWeight="Bold" Margin="0,0,0,30" TextAlignment="Center"/>
 
             <TextBlock Text="Артикул одягу:" FontSize="16"/>
-            <TextBox Name="SearchArticleBox" Margin="0,5" Height="30"/>
+            <TextBox Name="SearchArticleBox" Margin="0,5" Height="30" MaxLength="5"/>
 
-            <Button Content="Додати"  Margin="0,30,0,0" Height="35" Background="Purple" Foreground="White" FontSize="20"/>
+            <Button Content="Пошук"  Margin="0,30,0,0" Height="35" Background="Purple" Foreground="White" FontSize="20" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>

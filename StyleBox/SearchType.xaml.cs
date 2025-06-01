@@ -33,5 +33,15 @@ namespace StyleBox
                 mainWindow.Show();
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string inpText = SearchTypeBox.Text;
+
+            List<Cloth> clothList = DB_Communication.DB_Get_Data(inpText);
+            mainWindow.ClothListDG.ItemsSource = clothList;
+            this.Close();
+            mainWindow.Show();
+        }
     }
 }

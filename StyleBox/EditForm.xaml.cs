@@ -49,6 +49,14 @@ namespace StyleBox
             Selected_Cloth.cloth_type = TypeTextBox.Text;
             Selected_Cloth.cloth_number = Convert.ToInt32(NumberTextBox.Text);
 
+
+
+            if (Selected_Cloth.cloth_type != "M" && Selected_Cloth.cloth_type != "F" && Selected_Cloth.cloth_type != "K")
+            {
+                MessageBox.Show("Тип одягу повинен бути 'M'(для чловіків), 'F'(для жінок) або 'K'(для дітей).", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             bool edited = DB_Communication.DB_Update_Item(Selected_Cloth);
            
             if (edited)
