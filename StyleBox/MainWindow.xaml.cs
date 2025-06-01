@@ -116,14 +116,20 @@ namespace StyleBox
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Search_Article(object sender, RoutedEventArgs e)
         {
 
+            SearchArticle articleForm = new SearchArticle(this);
+            articleForm.Show();
+            Hide();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void Search_Type(object sender, RoutedEventArgs e)
         {
 
+            SearchType typeForm = new SearchType(this);
+            typeForm.Show();
+            Hide();
         }
     }
 }

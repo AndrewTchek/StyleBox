@@ -19,9 +19,19 @@ namespace StyleBox
     /// </summary>
     public partial class SearchType : Window
     {
-        public SearchType()
+        private MainWindow mainWindow;
+        public SearchType(MainWindow main)
         {
             InitializeComponent();
+            mainWindow = main;
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            if (mainWindow != null)
+            {
+                mainWindow.Show();
+            }
         }
     }
 }
