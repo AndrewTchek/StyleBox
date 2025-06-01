@@ -14,8 +14,8 @@
                 <MenuItem Header="Зберегти локально" />
             </MenuItem>
             <MenuItem Header="Пошук" >
-                <MenuItem Header="Пошук за артиклом" />
-                <MenuItem Header="Пошук за типом" />
+                <MenuItem Header="Пошук за артиклом" Click="Search_Article"/>
+                <MenuItem Header="Пошук за типом" Click="Search_Type"/>
             </MenuItem>
             <MenuItem Header="Авторизація" Click="Autorization_Click" />
             <MenuItem Header="Дані" >
