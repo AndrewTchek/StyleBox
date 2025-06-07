@@ -37,7 +37,11 @@ namespace StyleBox
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string inpText = SearchTypeBox.Text;
-
+            if (inpText.Length != 1)
+            {
+                MessageBox.Show("Тип повинен містити 1 символів", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             List<Cloth> clothList = DB_Communication.DB_Get_Data(inpText);
             mainWindow.ClothListDG.ItemsSource = clothList;
             this.Close();

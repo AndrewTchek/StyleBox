@@ -17,7 +17,7 @@ namespace StyleBox
         {
             try
             {
-                string connstring = "server=localhost;uid=root;pwd=135135135;database=stylebox_db";
+                string connstring = "server=localhost;uid=root;pwd=2707200;database=stylebox_db";
                 con = new MySqlConnection();
                 con.ConnectionString = connstring;
                 con.Open();
@@ -39,39 +39,44 @@ namespace StyleBox
                 sql = "select * from stocks where cloth_type = @filter";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@filter", filter);
-                MessageBox.Show(sql);
             }
             else if (filter.Length > 1 && filter.Length <= 5)
             {
                 sql = "select * from stocks where cloth_article = @filter";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@filter", filter);
-                MessageBox.Show(sql);
             }
 
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-            
-
-            List<Cloth> clothList = new List<Cloth>();
-
-            
-            while (reader.Read())
+            try
             {
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                clothList.Add(new Cloth
+
+                List<Cloth> clothList = new List<Cloth>();
+
+
+                while (reader.Read())
                 {
-                    cloth_article = reader["cloth_article"].ToString(),
-                    cloth_name = reader["cloth_name"].ToString(),
-                    cloth_type = reader["cloth_type"].ToString(),
-                    cloth_price = Convert.ToDouble(reader["cloth_price"]),
-                    cloth_number = Convert.ToInt32(reader["cloth_number"])
-                });
+
+                    clothList.Add(new Cloth
+                    {
+                        cloth_article = reader["cloth_article"].ToString(),
+                        cloth_name = reader["cloth_name"].ToString(),
+                        cloth_type = reader["cloth_type"].ToString(),
+                        cloth_price = Convert.ToDouble(reader["cloth_price"]),
+                        cloth_number = Convert.ToInt32(reader["cloth_number"])
+                    });
+                }
+                reader.Close();
+
+
+                return clothList;
             }
-            reader.Close();
-
-
-            return clothList;
+            catch (System.InvalidOperationException ex)
+            {
+                MessageBox.Show("Помилка при отриманні даних:" + ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new List<Cloth>();
+            }
 
         }
     
