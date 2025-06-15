@@ -32,7 +32,7 @@ namespace StyleBox
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             string inpText = SearchArticleBox.Text;
             if (inpText.Length != 5)

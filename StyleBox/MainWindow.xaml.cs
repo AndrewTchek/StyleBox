@@ -121,7 +121,7 @@ namespace StyleBox
             }
         }
 
-        private void Search_Article(object sender, RoutedEventArgs e)
+        public void Search_Article(object sender, RoutedEventArgs e)
         {
 
             SearchArticle articleForm = new SearchArticle(this);

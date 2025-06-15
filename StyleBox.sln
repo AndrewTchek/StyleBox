@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleBox", "StyleBox\StyleBox.csproj", "{BAD341B4-B742-4DAA-A93B-82AF8D9BB455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleBoxTests", "StyleBoxTests\StyleBoxTests.csproj", "{56A41681-28B9-4E36-B7A4-9CAD33EBFED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BAD341B4-B742-4DAA-A93B-82AF8D9BB455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAD341B4-B742-4DAA-A93B-82AF8D9BB455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAD341B4-B742-4DAA-A93B-82AF8D9BB455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A41681-28B9-4E36-B7A4-9CAD33EBFED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A41681-28B9-4E36-B7A4-9CAD33EBFED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A41681-28B9-4E36-B7A4-9CAD33EBFED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A41681-28B9-4E36-B7A4-9CAD33EBFED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
