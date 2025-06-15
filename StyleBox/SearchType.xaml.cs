@@ -42,8 +42,8 @@ namespace StyleBox
                 MessageBox.Show("Тип повинен містити 1 символів", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            List<Cloth> clothList = DB_Communication.DB_Get_Data(inpText);
-            mainWindow.ClothListDG.ItemsSource = clothList;
+            mainWindow.clothList = DB_Communication.DB_Get_Data(inpText);
+            mainWindow.ClothListDG.ItemsSource = mainWindow.clothList;
             this.Close();
             mainWindow.Show();
         }

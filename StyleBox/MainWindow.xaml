@@ -11,7 +11,7 @@
         <Menu VerticalAlignment="Top"  Grid.Row="0" >
             <MenuItem Header="Файл">
                 <MenuItem Header="Завантажити" Click="Db_download"/>
-                <MenuItem Header="Зберегти локально" />
+                <MenuItem Header="Зберегти локально" Click="Word_Click"/>
             </MenuItem>
             <MenuItem Header="Пошук" >
                 <MenuItem Header="Пошук за артиклом" Click="Search_Article"/>

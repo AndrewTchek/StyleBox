@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace StyleBox
 {
-    /// <summary>
-    /// Логика взаимодействия для SearchArticle.xaml
-    /// </summary>
     public partial class SearchArticle : Window
     {
         private MainWindow mainWindow;
@@ -44,8 +41,8 @@ namespace StyleBox
                 return;
             }
 
-            List<Cloth> clothList = DB_Communication.DB_Get_Data(inpText);
-            mainWindow.ClothListDG.ItemsSource = clothList;
+            mainWindow.clothList = DB_Communication.DB_Get_Data(inpText);
+            mainWindow.ClothListDG.ItemsSource = mainWindow.clothList;
             this.Close();
             mainWindow.Show();
         }

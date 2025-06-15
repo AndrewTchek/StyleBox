@@ -17,7 +17,7 @@ namespace StyleBox
         {
             try
             {
-                string connstring = "server=localhost;uid=root;pwd=2707200;database=stylebox_db";
+                string connstring = "server=localhost;uid=root;pwd=27072005;database=stylebox_db";
                 con = new MySqlConnection();
                 con.ConnectionString = connstring;
                 con.Open();

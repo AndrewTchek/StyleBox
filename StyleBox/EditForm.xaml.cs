@@ -13,10 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Office.Interop.Word;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace StyleBox
 {
-    public partial class EditForm : Window
+    public partial class EditForm : System.Windows.Window
     {
         private Cloth Selected_Cloth;
         private MainWindow mainWindow;
