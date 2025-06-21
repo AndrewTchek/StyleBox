@@ -38,7 +38,7 @@ namespace StyleBox
             }
         }
 
-        private void Add_Button_Click(object sender, RoutedEventArgs e)
+        public void Add_Button_Click(object sender, RoutedEventArgs e)
         {
 
             Cloth new_item = new Cloth();

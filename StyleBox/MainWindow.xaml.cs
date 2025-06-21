@@ -106,7 +106,7 @@ namespace StyleBox
             }
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        public void Add_Click(object sender, RoutedEventArgs e)
         {
             if (autorization)
             {
@@ -129,7 +129,7 @@ namespace StyleBox
             Hide();
         }
 
-        private void Search_Type(object sender, RoutedEventArgs e)
+        public void Search_Type(object sender, RoutedEventArgs e)
         {
 
             SearchType typeForm = new SearchType(this);

@@ -21,7 +21,7 @@ namespace StyleBox
                 con = new MySqlConnection();
                 con.ConnectionString = connstring;
                 con.Open();
-                MessageBox.Show("Підключення до бази даних відбулось успішно");
+                //MessageBox.Show("Підключення до бази даних відбулось успішно");
             }
             catch (MySqlException ex)
             {
@@ -128,13 +128,6 @@ namespace StyleBox
     
         public static bool DB_Add_Item(Cloth new_item)
         {
-
-
-
-
-
-
-
             string query = "SELECT COUNT(*) FROM stocks WHERE cloth_article = @article";
             MySqlCommand cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("@article", new_item.cloth_article);

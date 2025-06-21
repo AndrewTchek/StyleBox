@@ -11,15 +11,15 @@
             <TextBlock Text="Додавання одягу" FontSize="30" FontWeight="Bold" Margin="0,0,0,10" TextAlignment="Center"/>
 
             <TextBlock Text="Назва:" FontSize="16"/>
-            <TextBox Name="NameTextBox" Margin="0,5" Height="25"/>
+            <TextBox Name="NameTextBox" Margin="0,5" Height="25" x:FieldModifier="public"/>
             <TextBlock Text="Артикул:" FontSize="16"/>
-            <TextBox Name="ArticleTextBox" Margin="0,5" Height="25"/>
+            <TextBox Name="ArticleTextBox" Margin="0,5" Height="25" x:FieldModifier="public"/>
             <TextBlock Text="Ціна:" FontSize="16"/>
-            <TextBox Name="PriceTextBox" Margin="0,5" Height="25"/>
+            <TextBox Name="PriceTextBox" Margin="0,5" Height="25" x:FieldModifier="public"/>
             <TextBlock Text="Тип:" FontSize="16"/>
-            <TextBox Name="TypeTextBox" Margin="0,5" Height="25"/>
+            <TextBox Name="TypeTextBox" Margin="0,5" Height="25" x:FieldModifier="public"/>
             <TextBlock Text="Кількість:" FontSize="16"/>
-            <TextBox Name="NumberTextBox" Margin="0,5" Height="25"/>
+            <TextBox Name="NumberTextBox" Margin="0,5" Height="25" x:FieldModifier="public"/>
             <Button Content="Додати" Click="Add_Button_Click"  Margin="0,10,0,0" Height="35" Background="Purple" Foreground="White" FontSize="20"/>
         </StackPanel>
     </Grid>
